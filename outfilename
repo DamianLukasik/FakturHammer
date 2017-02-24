@@ -1,0 +1,150 @@
+<Document-Invoice>
+<Invoice-Header>
+	<InvoiceNumber>220/P/2017</InvoiceNumber>
+	<InvoiceDate>2017-01-05</InvoiceDate>
+	<SalesDate>2017-01-04</SalesDate>
+	<InvoiceCurrency>PLN</InvoiceCurrency>
+	<InvoicePaymentDueDate>2017-03-06</InvoicePaymentDueDate>
+	<DocumentFunctionCode>O</DocumentFunctionCode>
+	<Order>
+		<BuyerOrderNumber>00614092</BuyerOrderNumber>
+		<BuyerOrderDate>2016-12-28</BuyerOrderDate>
+	</Order>
+	<Delivery>
+		<DeliveryLocationNumber>3020400800700</DeliveryLocationNumber>
+		<DeliveryDate>2017-01-04</DeliveryDate>
+		<DespatchNumber>214/P/2017</DespatchNumber>
+		<DespatchAdviceNumber>214/P/2017</DespatchAdviceNumber>
+		<Name />
+		<StreetAndNumber> </StreetAndNumber>
+		<CityName />
+		<PostalCode />
+		<Country>PL</Country>
+	</Delivery>
+</Invoice-Header>
+<Invoice-Parties>
+	<Buyer>
+		<ILN>3020400800007</ILN>
+		<TaxID>5261009959</TaxID>
+		<AccountNumber>Numerrachunku</AccountNumber>
+		<Name>Castorama Polska Sp. z o.o.</Name>
+		<StreetAndNumber>Krakowiaków 78 </StreetAndNumber>
+		<CityName>Warszawa</CityName>
+		<PostalCode>02-255</PostalCode>
+		<Country>PL</Country>
+	</Buyer>
+	<Payer>
+		<ILN>3020400800007</ILN>
+		<TaxID>5261009959</TaxID>
+		<AccountNumber>Numerrachunku</AccountNumber>
+		<Name>Castorama Polska Sp. z o.o.</Name>
+		<StreetAndNumber>Krakowiaków 78 </StreetAndNumber>
+		<CityName>Warszawa</CityName>
+		<PostalCode>02-255</PostalCode>
+		<Country>PL</Country>
+	</Payer>
+	<Invoicee>
+		<ILN>3020400800007</ILN>
+		<TaxID>5261009959</TaxID>
+		<AccountNumber>Numerrachunku</AccountNumber>
+		<Name>Castorama Polska Sp. z o.o.</Name>
+		<StreetAndNumber>Krakowiaków 78 </StreetAndNumber>
+		<CityName>Warszawa</CityName>
+		<PostalCode>02-255</PostalCode>
+		<Country>PL</Country>
+	</Invoicee>
+	<Seller>
+		<ILN>5907377240006</ILN>
+		<TaxID>9492133319</TaxID>
+		<AccountNumber>PLN37105011421000009030188545</AccountNumber>
+		<CodeByBuyer>30489</CodeByBuyer>
+		<Name>EKO-LIGHT Sp. z o.o. Komandytowa</Name>
+		<StreetAndNumber>PASCALA 19</StreetAndNumber>
+		<CityName>CZĘSTOCHOWA</CityName>
+		<PostalCode>42-209</PostalCode>
+		<Country>PL</Country>
+	</Seller>
+</Invoice-Parties>
+<Invoice-Lines>
+	<Line>
+		<Line-Item>
+			<LineNumber>1</LineNumber>
+			<EAN>5902020409366</EAN>
+			<SupplierItemCode>5902020409366</SupplierItemCode>
+			<ItemDescription>1861 ZASILACZ LED 100W 5902020409366</ItemDescription>
+			<ItemType>CU</ItemType>
+			<InvoiceQuantity>1.000</InvoiceQuantity>
+			<UnitOfMeasure>PCE</UnitOfMeasure>
+			<InvoiceUnitNetPrice>37.99</InvoiceUnitNetPrice>
+			<TaxRate>23.00</TaxRate>
+			<TaxCategoryCode>S</TaxCategoryCode>
+			<TaxAmount>8.74</TaxAmount>
+			<NetAmount>37.99</NetAmount>
+		</Line-Item>
+		<Line-Delivery>
+			<DeliveryLocationNumber>3020400800700</DeliveryLocationNumber>
+			<DeliveryDate>2017-01-04</DeliveryDate>
+			<DespatchNumber>214/P/2017</DespatchNumber>
+		</Line-Delivery>
+	</Line>
+	<Line>
+		<Line-Item>
+			<LineNumber>2</LineNumber>
+			<EAN>5907377249597</EAN>
+			<SupplierItemCode>5907377249597</SupplierItemCode>
+			<ItemDescription>NAŚWIETLASZ 10W BARWA CIEPŁA 5907377249597</ItemDescription>
+			<ItemType>CU</ItemType>
+			<InvoiceQuantity>10.000</InvoiceQuantity>
+			<UnitOfMeasure>PCE</UnitOfMeasure>
+			<InvoiceUnitNetPrice>15.00</InvoiceUnitNetPrice>
+			<TaxRate>23.00</TaxRate>
+			<TaxCategoryCode>S</TaxCategoryCode>
+			<TaxAmount>34.50</TaxAmount>
+			<NetAmount>150.00</NetAmount>
+		</Line-Item>
+		<Line-Delivery>
+			<DeliveryLocationNumber>3020400800700</DeliveryLocationNumber>
+			<DeliveryDate>2017-01-04</DeliveryDate>
+			<DespatchNumber>214/P/2017</DespatchNumber>
+		</Line-Delivery>
+	</Line>
+	<Line>
+		<Line-Item>
+			<LineNumber>3</LineNumber>
+			<EAN>5907377244110</EAN>
+			<SupplierItemCode>5907377244110</SupplierItemCode>
+			<ItemDescription>ELLIPSE 411 LAMPA WIS 1x5W LED CHROM 5907377244110</ItemDescription>
+			<ItemType>CU</ItemType>
+			<InvoiceQuantity>2.000</InvoiceQuantity>
+			<UnitOfMeasure>PCE</UnitOfMeasure>
+			<InvoiceUnitNetPrice>53.00</InvoiceUnitNetPrice>
+			<TaxRate>23.00</TaxRate>
+			<TaxCategoryCode>S</TaxCategoryCode>
+			<TaxAmount>24.38</TaxAmount>
+			<NetAmount>106.00</NetAmount>
+		</Line-Item>
+		<Line-Delivery>
+			<DeliveryLocationNumber>3020400800700</DeliveryLocationNumber>
+			<DeliveryDate>2017-01-04</DeliveryDate>
+			<DespatchNumber>214/P/2017</DespatchNumber>
+		</Line-Delivery>
+	</Line>
+</Invoice-Lines>
+<Invoice-Summary>
+	<TotalLines>3</TotalLines>
+	<TotalNetAmount>293.99</TotalNetAmount>
+	<TotalTaxableBasis>293.99</TotalTaxableBasis>
+	<TotalTaxAmount>67.62</TotalTaxAmount>
+	<TotalGrossAmount>361.61</TotalGrossAmount>
+		<Tax-Summary>
+			<Tax-Summary-Line>
+				<TaxRate>23.00</TaxRate>
+				<TaxCategoryCode>S</TaxCategoryCode>
+				<TaxAmount>67.62</TaxAmount>
+				<TaxableBasis>293.99</TaxableBasis>
+				<TaxableAmount>293.99</TaxableAmount>
+				<GrossAmount>361.61</GrossAmount>
+			</Tax-Summary-Line>
+		</Tax-Summary>
+</Invoice-Summary>
+</Document-Invoice>
