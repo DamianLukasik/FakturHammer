@@ -73,9 +73,13 @@ public class Aplikacja extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        Txp_numer = new javax.swing.JTextPane();
+        Txp_numer_zamówienia = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Txp_numer_faktury = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Txp_GLN_Odbiorcy = new javax.swing.JTextPane();
         MnB_menu = new javax.swing.JMenuBar();
         MnB_faktury = new javax.swing.JMenu();
         MnI_wczytaj = new javax.swing.JMenuItem();
@@ -162,9 +166,13 @@ public class Aplikacja extends javax.swing.JFrame {
 
         jLabel3.setText("Numer zamówienia");
 
-        jLabel4.setText("GLN Dostawcy");
+        jLabel4.setText("Numer faktury");
 
         jLabel5.setText("GLN Odbiorcy");
+
+        jScrollPane2.setViewportView(Txp_numer_faktury);
+
+        jScrollPane3.setViewportView(Txp_GLN_Odbiorcy);
 
         MnB_faktury.setText("Faktury");
 
@@ -240,11 +248,15 @@ public class Aplikacja extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Txp_numer, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Txp_numer_zamówienia, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2)
+                                    .addComponent(jScrollPane3))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -267,17 +279,25 @@ public class Aplikacja extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(Txp_numer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(Txp_numer_zamówienia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel4))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel4.getAccessibleContext().setAccessibleName("Numer faktury");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -313,9 +333,16 @@ public class Aplikacja extends javax.swing.JFrame {
     private void Btn_zapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_zapiszActionPerformed
         System.out.println("zapisano zmiany");
         
-        String numer = this.Txp_numer.getText();
-        System.out.println("numer - "+numer);
-        wczytana_faktura.zapisz_zmiany(numer);
+        String numer_zamówienia = this.Txp_numer_zamówienia.getText();
+        System.out.println("numer - "+numer_zamówienia);        
+        //
+        String numer_faktury = this.Txp_numer_faktury.getText();
+        System.out.println("GLN Dostawcy - "+numer_faktury);
+        //
+        String GLN_Odbiorcy = this.Txp_GLN_Odbiorcy.getText();
+        System.out.println("GLN Odbiorcy - "+GLN_Odbiorcy);
+        //
+        wczytana_faktura.zapisz_zmiany(numer_zamówienia,numer_faktury,GLN_Odbiorcy);
         
         int i=0;
         for(Faktura temp : faktury)
@@ -323,7 +350,7 @@ public class Aplikacja extends javax.swing.JFrame {
             if(temp.get_nazwa().equals(wczytana_faktura.get_nazwa()))
             {
                 
-                model.setValueAt(numer.length(), i, 2);
+                model.setValueAt(numer_zamówienia.length(), i, 2);
                 
             }
             i++;
@@ -335,7 +362,8 @@ public class Aplikacja extends javax.swing.JFrame {
     
     private void Tab_daneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_daneMouseClicked
         
-        int row = this.Tab_dane.getSelectedRow();        
+        int row = this.Tab_dane.getSelectedRow();  
+        System.out.println("wiersz "+row+" \t"+model.getValueAt(row, 0).toString());
         if(row!=-1)
         {
             String str = model.getValueAt(row, 0).toString();
@@ -358,8 +386,11 @@ public class Aplikacja extends javax.swing.JFrame {
           //  fakt.show();
           
             this.Lbl_nazwa.setText(wczytana_faktura.get_nazwa());
-            this.Txp_numer.setText(wczytana_faktura.wczytajnumer());
+            String[] tabela = wczytana_faktura.wczytajnumer();
             
+            this.Txp_numer_zamówienia.setText(tabela[0]);
+            this.Txp_numer_faktury.setText(tabela[1]);
+            this.Txp_GLN_Odbiorcy.setText(tabela[2]);
             
            
          //   wczytana_faktura = 
@@ -419,13 +450,17 @@ public class Aplikacja extends javax.swing.JFrame {
     private javax.swing.JMenuItem MnI_zamknij;
     private javax.swing.JMenuItem MnI_zapisz;
     private javax.swing.JTable Tab_dane;
-    private javax.swing.JTextPane Txp_numer;
+    private javax.swing.JTextPane Txp_GLN_Odbiorcy;
+    private javax.swing.JTextPane Txp_numer_faktury;
+    private javax.swing.JTextPane Txp_numer_zamówienia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
@@ -454,7 +489,7 @@ public class Aplikacja extends javax.swing.JFrame {
                         String str_2;
                         if(faktury.get(i).get_rozszerzenie().equals("xml_b"))
                         {
-                            str_2 = faktury.get(i).get_ścieżka().substring(0, str_.indexOf("."))+".xml_b";
+                            str_2 = faktury.get(i).get_ścieżka().substring(0, str_.indexOf("."))+".xml_b";                            
                         }
                         else
                         {
@@ -488,6 +523,8 @@ public class Aplikacja extends javax.swing.JFrame {
                         lista.set(0, "<Document-Invoice>");
                         System.out.println(" == > "+str_2);                        
                         FileWriter fw = new FileWriter(str_2); 
+                        
+                      //  faktury.get(i).set_ścieżka(str_2);
                         BufferedWriter bw = new BufferedWriter(fw);                   
                         for (String line : lista) 
                         {                   
@@ -515,6 +552,8 @@ public class Aplikacja extends javax.swing.JFrame {
                                 fileDelete.delete();
                             }
                         }
+                        faktury.set(i,new Faktura(faktury.get(i),str_2));
+                        model.setValueAt(faktury.get(i).get_nazwa()+"", i, 0);
                     }
                     else
                     {
