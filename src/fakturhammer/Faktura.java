@@ -171,7 +171,7 @@ public class Faktura {
     {
   
         File file = new File(this.ścieżka);
-        String[] wczytane={"","",""};
+        String[] wczytane={"","","",""};
         String dane = "";
         try
         {
@@ -210,7 +210,7 @@ public class Faktura {
 	    }
 	}
             */
-            boolean[] logi = {false,false,false,false};
+            boolean[] logi = {false,false,false,false,false};
             // działa
             FileReader fileReader = new FileReader(file);
             BufferedReader odczytaj = new BufferedReader(fileReader);
@@ -226,7 +226,7 @@ public class Faktura {
                     wczytane[0] = dane.substring(a, b);     
                     logi[0]=true;
                 }
-                if(dane.indexOf("<DeliveryLocationNumber>")!=-1 && logi[1]==false)
+                if(dane.indexOf("<DespatchNumber>")!=-1 && logi[1]==false)
                 {
                     //
                     a = dane.indexOf(">")+1;
@@ -235,11 +235,11 @@ public class Faktura {
                     wczytane[1] = dane.substring(a, b);  
                     logi[1]=true;
                 }
-                if(dane.indexOf("<Buyer>")!=-1 && logi[3]==false)
+                if(dane.indexOf("<Reference>")!=-1 && logi[3]==false)
                 {
                     logi[3]=true;
                 }
-                if(dane.indexOf("<ILN>")!=-1 && logi[2]==false && logi[3]==true)
+                if(dane.indexOf("<InvoiceReferenceNumber>")!=-1 && logi[2]==false && logi[3]==true)
                 {
                         //
                     a = dane.indexOf(">")+1;
@@ -248,6 +248,15 @@ public class Faktura {
                     wczytane[2] = dane.substring(a, b);   
                     logi[2]=true;
                     logi[3]=false;
+                }
+                if(dane.indexOf("<CorrectionReason>")!=-1 && logi[4]==false)
+                {
+                    //
+                    a = dane.indexOf(">")+1;
+                    b = dane.indexOf("</");
+                    
+                    wczytane[3] = dane.substring(a, b);  
+                    logi[4]=true;
                 }
             }
         }
@@ -274,15 +283,18 @@ public class Faktura {
     Charset ch_de = Charset.forName("iso-8859-1");
     Charset ch_wn = Charset.forName("windows-1250");
 
-    public void zapisz_zmiany(String numer_zamówienia, String numer_faktury, String GLN_Odbiorcy) {
-        
+    public void zapisz_zmiany(
+            String numer_zamówienia, String numer_korekty, 
+            String numer_faktury_korygowanej, String przyczyna_korekty) 
+    {
+    
         ArrayList<String> lista = new ArrayList<String>();
         String zapis="";
         
         try 
         {       
             File file = new File(this.ścieżka);
-            boolean[] zapisane = {false,false,false,false};            
+            boolean[] zapisane = {false,false,false,false,false};            
             
             String dane = null;
             BufferedReader odczytaj = new BufferedReader(new InputStreamReader(new FileInputStream(file),ch_pl)); 
@@ -295,21 +307,27 @@ public class Faktura {
                     dane = "\t\t<BuyerOrderNumber>"+numer_zamówienia+"</BuyerOrderNumber>";  
                     zapisane[0]=true;
                 } 
-                if(dane.indexOf("<DeliveryLocationNumber>")!=-1 && zapisane[1]==false)
+                if(dane.indexOf("<DespatchNumber>")!=-1 && zapisane[1]==false)
                 {                         
-                    dane = "\t\t<DeliveryLocationNumber>"+numer_faktury+"</DeliveryLocationNumber>";        
+                    dane = "\t\t<DespatchNumber>"+numer_korekty+"</DespatchNumber>";        
                     zapisane[1]=true;
                 } 
-                if(dane.indexOf("<Buyer>")!=-1 && zapisane[3]==false)
+                if(dane.indexOf("<Reference>")!=-1 && zapisane[3]==false)
                 {                                
                     zapisane[3]=true;
                 } 
-                if(dane.indexOf("<ILN>")!=-1 && zapisane[2]==false && zapisane[3]==true)
+                if(dane.indexOf("<InvoiceReferenceNumber>")!=-1 && zapisane[2]==false && 
+                        zapisane[3]==true && numer_faktury_korygowanej!="Brak")
                 {                         
-                    dane = "\t\t<ILN>"+GLN_Odbiorcy+"</ILN>";      
+                    dane = "\t\t<InvoiceReferenceNumber>"+numer_faktury_korygowanej+"</InvoiceReferenceNumber>";      
                     zapisane[2]=true;
                     zapisane[3]=false;
                 } 
+                if(dane.indexOf("<CorrectionReason>")!=-1 && zapisane[4]==false && przyczyna_korekty!="Brak")
+                {                         
+                    dane = "\t\t<CorrectionReason>"+przyczyna_korekty+"</CorrectionReason>";      
+                    zapisane[4]=true;
+                }
                 lista.add("\n"+dane);
             }
             odczytaj.close();

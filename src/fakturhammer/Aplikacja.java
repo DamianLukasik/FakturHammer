@@ -73,13 +73,16 @@ public class Aplikacja extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        Txp_numer_zamówienia = new javax.swing.JTextPane();
+        Txp_nr_zamówienia = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Txp_numer_faktury = new javax.swing.JTextPane();
+        Txp_nr_korekty = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        Txp_GLN_Odbiorcy = new javax.swing.JTextPane();
+        Txp_nr_faktura_korygowanej = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Txp_przyczyna_korekty = new javax.swing.JTextPane();
+        jLabel6 = new javax.swing.JLabel();
         MnB_menu = new javax.swing.JMenuBar();
         MnB_faktury = new javax.swing.JMenu();
         MnI_wczytaj = new javax.swing.JMenuItem();
@@ -164,15 +167,19 @@ public class Aplikacja extends javax.swing.JFrame {
 
         jLabel2.setText("Dane");
 
-        jLabel3.setText("Numer zamówienia");
+        jLabel3.setText("Nr. zamówienia");
 
-        jLabel4.setText("Numer faktury");
+        jLabel4.setText("Nr. korekty");
 
-        jLabel5.setText("GLN Odbiorcy");
+        jLabel5.setText("Nr. faktury korygowanej");
 
-        jScrollPane2.setViewportView(Txp_numer_faktury);
+        jScrollPane2.setViewportView(Txp_nr_korekty);
 
-        jScrollPane3.setViewportView(Txp_GLN_Odbiorcy);
+        jScrollPane3.setViewportView(Txp_nr_faktura_korygowanej);
+
+        jScrollPane4.setViewportView(Txp_przyczyna_korekty);
+
+        jLabel6.setText("Przyczyna korekty");
 
         MnB_faktury.setText("Faktury");
 
@@ -240,24 +247,25 @@ public class Aplikacja extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_nazwa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Lbl_nazwa, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
+                    .addComponent(Btn_zapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Btn_zapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Txp_numer_zamówienia, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane2)
-                                    .addComponent(jScrollPane3))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(Txp_nr_zamówienia)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -285,19 +293,22 @@ public class Aplikacja extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(Txp_numer_zamówienia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel3)
+                                                    .addComponent(Txp_nr_zamówienia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel4))
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel4))
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jLabel5))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel6))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel4.getAccessibleContext().setAccessibleName("Numer faktury");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -333,16 +344,21 @@ public class Aplikacja extends javax.swing.JFrame {
     private void Btn_zapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_zapiszActionPerformed
         System.out.println("zapisano zmiany");
         
-        String numer_zamówienia = this.Txp_numer_zamówienia.getText();
-        System.out.println("numer - "+numer_zamówienia);        
+        String numer_zamówienia = this.Txp_nr_zamówienia.getText();
+        System.out.println("numer zamówienia - "+numer_zamówienia);        
         //
-        String numer_faktury = this.Txp_numer_faktury.getText();
-        System.out.println("GLN Dostawcy - "+numer_faktury);
+        String numer_korekty = this.Txp_nr_korekty.getText();
+        System.out.println("numer korekty - "+numer_korekty);
         //
-        String GLN_Odbiorcy = this.Txp_GLN_Odbiorcy.getText();
-        System.out.println("GLN Odbiorcy - "+GLN_Odbiorcy);
+        String numer_faktury_korygowanej = this.Txp_nr_faktura_korygowanej.getText();
+        System.out.println("numer faktury korygowanej - "+numer_faktury_korygowanej);
         //
-        wczytana_faktura.zapisz_zmiany(numer_zamówienia,numer_faktury,GLN_Odbiorcy);
+        String przyczyna_korekty = this.Txp_przyczyna_korekty.getText();
+        System.out.println("Przyczyna korekty - "+przyczyna_korekty);
+        //
+        wczytana_faktura.zapisz_zmiany(
+                numer_zamówienia,numer_korekty,
+                numer_faktury_korygowanej,przyczyna_korekty);
         
         int i=0;
         for(Faktura temp : faktury)
@@ -388,11 +404,24 @@ public class Aplikacja extends javax.swing.JFrame {
             this.Lbl_nazwa.setText(wczytana_faktura.get_nazwa());
             String[] tabela = wczytana_faktura.wczytajnumer();
             
-            this.Txp_numer_zamówienia.setText(tabela[0]);
-            this.Txp_numer_faktury.setText(tabela[1]);
-            this.Txp_GLN_Odbiorcy.setText(tabela[2]);
-            
-           
+            this.Txp_nr_zamówienia.setText(tabela[0]);
+            this.Txp_nr_korekty.setText(tabela[1]);
+            if(tabela[2]=="")
+            {
+                this.Txp_nr_faktura_korygowanej.setText("Brak");
+            }
+            else
+            {
+                this.Txp_nr_faktura_korygowanej.setText(tabela[2]);
+            }
+            if(tabela[3]=="")
+            {
+                this.Txp_przyczyna_korekty.setText("Brak");
+            }
+            else
+            {
+                this.Txp_przyczyna_korekty.setText(tabela[3]);
+            }
          //   wczytana_faktura = 
             
         //    this.Lbl_nazwa.setText(str);
@@ -450,17 +479,20 @@ public class Aplikacja extends javax.swing.JFrame {
     private javax.swing.JMenuItem MnI_zamknij;
     private javax.swing.JMenuItem MnI_zapisz;
     private javax.swing.JTable Tab_dane;
-    private javax.swing.JTextPane Txp_GLN_Odbiorcy;
-    private javax.swing.JTextPane Txp_numer_faktury;
-    private javax.swing.JTextPane Txp_numer_zamówienia;
+    private javax.swing.JTextPane Txp_nr_faktura_korygowanej;
+    private javax.swing.JTextPane Txp_nr_korekty;
+    private javax.swing.JTextPane Txp_nr_zamówienia;
+    private javax.swing.JTextPane Txp_przyczyna_korekty;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
