@@ -83,6 +83,9 @@ public class Aplikacja extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         Txp_przyczyna_korekty = new javax.swing.JTextPane();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Txp_GLL_Odbiorcy = new javax.swing.JTextPane();
         MnB_menu = new javax.swing.JMenuBar();
         MnB_faktury = new javax.swing.JMenu();
         MnI_wczytaj = new javax.swing.JMenuItem();
@@ -169,17 +172,47 @@ public class Aplikacja extends javax.swing.JFrame {
 
         jLabel3.setText("Nr. zamówienia");
 
+        Txp_nr_zamówienia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Txp_nr_zamówieniaKeyReleased(evt);
+            }
+        });
+
         jLabel4.setText("Nr. korekty");
 
         jLabel5.setText("Nr. faktury korygowanej");
 
+        Txp_nr_korekty.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Txp_nr_korektyKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(Txp_nr_korekty);
 
+        Txp_nr_faktura_korygowanej.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Txp_nr_faktura_korygowanejKeyReleased(evt);
+            }
+        });
         jScrollPane3.setViewportView(Txp_nr_faktura_korygowanej);
 
+        Txp_przyczyna_korekty.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Txp_przyczyna_korektyKeyReleased(evt);
+            }
+        });
         jScrollPane4.setViewportView(Txp_przyczyna_korekty);
 
         jLabel6.setText("Przyczyna korekty");
+
+        jLabel7.setText("GLL Odbiorcy");
+
+        Txp_GLL_Odbiorcy.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Txp_GLL_OdbiorcyKeyReleased(evt);
+            }
+        });
+        jScrollPane5.setViewportView(Txp_GLL_Odbiorcy);
 
         MnB_faktury.setText("Faktury");
 
@@ -247,26 +280,37 @@ public class Aplikacja extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_nazwa, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                    .addComponent(Lbl_nazwa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
-                    .addComponent(Btn_zapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Txp_nr_zamówienia)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Btn_zapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Txp_nr_zamówienia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +323,6 @@ public class Aplikacja extends javax.swing.JFrame {
                     .addComponent(Btn_zapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -287,26 +330,28 @@ public class Aplikacja extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel3)
-                                                    .addComponent(Txp_nr_zamówienia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel4))
-                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel5))
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel6))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel3)
+                            .addComponent(Txp_nr_zamówienia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -356,21 +401,20 @@ public class Aplikacja extends javax.swing.JFrame {
         String przyczyna_korekty = this.Txp_przyczyna_korekty.getText();
         System.out.println("Przyczyna korekty - "+przyczyna_korekty);
         //
-        wczytana_faktura.zapisz_zmiany(
-                numer_zamówienia,numer_korekty,
-                numer_faktury_korygowanej,przyczyna_korekty);
+        String GLL_Odbiorcy = this.Txp_GLL_Odbiorcy.getText();
+        System.out.println("GLL Odbiorcy - "+GLL_Odbiorcy);
+        //
+        wczytana_faktura.zapisz_zmiany();
         
         int i=0;
         for(Faktura temp : faktury)
         {
             if(temp.get_nazwa().equals(wczytana_faktura.get_nazwa()))
             {
-                
                 model.setValueAt(numer_zamówienia.length(), i, 2);
-                
             }
             i++;
-        }      
+        }
       //  System.out        
     }//GEN-LAST:event_Btn_zapiszActionPerformed
 
@@ -395,7 +439,10 @@ public class Aplikacja extends javax.swing.JFrame {
                     file.getAbsolutePath(),
                     model.getValueAt(row, 2).toString(),
                     model.getValueAt(row, 1).toString(),
-                    file.getParent());
+                    file.getParent(),
+                    take_GLL_Odbiorcy(file),
+                    take_Nr_faktura_korygowanej(file)
+            );
          
            // System.out.println(rozszerz+" "+file.getAbsolutePath());
             
@@ -409,26 +456,80 @@ public class Aplikacja extends javax.swing.JFrame {
             if(tabela[2]=="")
             {
                 this.Txp_nr_faktura_korygowanej.setText("Brak");
+                this.Txp_nr_faktura_korygowanej.setEditable(false);
             }
             else
             {
                 this.Txp_nr_faktura_korygowanej.setText(tabela[2]);
+                this.Txp_nr_faktura_korygowanej.setEditable(true);
             }
             if(tabela[3]=="")
             {
                 this.Txp_przyczyna_korekty.setText("Brak");
+                this.Txp_przyczyna_korekty.setEditable(false);
             }
             else
             {
                 this.Txp_przyczyna_korekty.setText(tabela[3]);
+                this.Txp_przyczyna_korekty.setEditable(true);
+            }
+            if(tabela[4]=="")
+            {
+                this.Txp_GLL_Odbiorcy.setText("Brak");
+                this.Txp_GLL_Odbiorcy.setEditable(false);
+            }
+            else
+            {
+                this.Txp_GLL_Odbiorcy.setText(tabela[4]);
+                this.Txp_GLL_Odbiorcy.setEditable(true);
             }
          //   wczytana_faktura = 
-            
+            file = null;
         //    this.Lbl_nazwa.setText(str);
         }
         
     }//GEN-LAST:event_Tab_daneMouseClicked
-        
+
+    private void Txp_nr_zamówieniaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txp_nr_zamówieniaKeyReleased
+        if(this.Txp_nr_zamówienia.getText()!="")
+        {
+            wczytana_faktura.set_Nr_zamówienia(this.Txp_nr_zamówienia.getText());
+            System.out.println(this.Txp_nr_zamówienia.getText());
+        } 
+    }//GEN-LAST:event_Txp_nr_zamówieniaKeyReleased
+
+    private void Txp_nr_korektyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txp_nr_korektyKeyReleased
+        if(this.Txp_nr_korekty.getText()!="")
+        {
+            wczytana_faktura.set_Nr_korekty(this.Txp_nr_korekty.getText());
+            System.out.println(this.Txp_nr_korekty.getText());
+        }
+    }//GEN-LAST:event_Txp_nr_korektyKeyReleased
+
+    private void Txp_przyczyna_korektyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txp_przyczyna_korektyKeyReleased
+        if(this.Txp_przyczyna_korekty.getText()!="")
+        {
+            wczytana_faktura.set_Przyczyna_korekty(this.Txp_przyczyna_korekty.getText());
+            System.out.println(this.Txp_przyczyna_korekty.getText());
+        }
+    }//GEN-LAST:event_Txp_przyczyna_korektyKeyReleased
+
+    private void Txp_nr_faktura_korygowanejKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txp_nr_faktura_korygowanejKeyReleased
+        if(this.Txp_nr_faktura_korygowanej.getText()!="")
+        {
+            wczytana_faktura.set_nr_faktura_korygowanej(this.Txp_nr_faktura_korygowanej.getText());
+            System.out.println(this.Txp_nr_faktura_korygowanej.getText());
+        } 
+    }//GEN-LAST:event_Txp_nr_faktura_korygowanejKeyReleased
+
+    private void Txp_GLL_OdbiorcyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txp_GLL_OdbiorcyKeyReleased
+        if(this.Txp_GLL_Odbiorcy.getText()!="")
+        {
+            wczytana_faktura.set_GLL_Odbiorcy(this.Txp_GLL_Odbiorcy.getText());
+            System.out.println(this.Txp_GLL_Odbiorcy.getText());
+        }  
+    }//GEN-LAST:event_Txp_GLL_OdbiorcyKeyReleased
+            
     /**
      * @param args the command line arguments
      */
@@ -479,6 +580,7 @@ public class Aplikacja extends javax.swing.JFrame {
     private javax.swing.JMenuItem MnI_zamknij;
     private javax.swing.JMenuItem MnI_zapisz;
     private javax.swing.JTable Tab_dane;
+    private javax.swing.JTextPane Txp_GLL_Odbiorcy;
     private javax.swing.JTextPane Txp_nr_faktura_korygowanej;
     private javax.swing.JTextPane Txp_nr_korekty;
     private javax.swing.JTextPane Txp_nr_zamówienia;
@@ -489,10 +591,12 @@ public class Aplikacja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
@@ -504,14 +608,13 @@ public class Aplikacja extends javax.swing.JFrame {
             ArrayList<String> lista = new ArrayList<String>();
 
             try 
-            {        
+            {
                 int rowCount = model.getRowCount(); 
                 for (int i = rowCount - 1; i >= 0; i--) 
                 {
                     if(!faktury.get(i).get_stan().equals("Numer jest w porządku "))
                     {
                         String str_ = faktury.get(i).get_ścieżka();
-
 
                         File txt = new File(str_);
                         if(!txt.isFile()){continue;}
@@ -786,7 +889,7 @@ public class Aplikacja extends javax.swing.JFrame {
                         +Integer.parseInt(znak[1])+"\n\t"+znak[0]+"  "+x.getParent());
                 
                 faktury.add(new Faktura(znak[2],x.getName(),x.getAbsolutePath(),
-                        znak[1],znak[0],x.getParent()));
+                        znak[1],znak[0],x.getParent(),take_GLL_Odbiorcy(x),take_Nr_faktura_korygowanej(x)));
                 
                 //tu skończyłem
             }
@@ -810,6 +913,68 @@ public class Aplikacja extends javax.swing.JFrame {
         {
             System.out.println("Nic nie wybrano  ");
         }
+    }
+
+    private String take_GLL_Odbiorcy(File file) {        
+        try
+        {
+            String dane = "";
+            Boolean[] logi = {false,false};
+            FileReader fileReader = new FileReader(file);
+            BufferedReader odczytaj = new BufferedReader(fileReader);
+            while ((dane = odczytaj.readLine()) != null) 
+            {
+                if(dane.indexOf("<Buyer>")!=-1 && logi[0]==false)
+                {
+                    logi[0]=true;
+                }
+                if(dane.indexOf("<ILN>")!=-1 && logi[1]==false && logi[0]==true)
+                {
+                    System.out.println("GLL Odbiorcy\t=\t"+dane.substring(dane.indexOf(">")+1, dane.indexOf("</")));
+                    return dane.substring(dane.indexOf(">")+1, dane.indexOf("</"));                     
+                }
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            System.err.println(e);
+        }
+        catch(IOException e)
+        {
+            System.err.println(e);
+        }
+        return "0";
+    }
+
+    private String take_Nr_faktura_korygowanej(File file) {
+        try
+        {
+            String dane = "";
+            Boolean[] logi = {false,false};
+            FileReader fileReader = new FileReader(file);
+            BufferedReader odczytaj = new BufferedReader(fileReader);
+            while ((dane = odczytaj.readLine()) != null) 
+            {
+                if(dane.indexOf("<Reference>")!=-1 && logi[0]==false)
+                {
+                    logi[0]=true;
+                }
+                if(dane.indexOf("<InvoiceReferenceNumber>")!=-1 && logi[1]==false && logi[0]==true)
+                {
+                    System.out.println("Nr faktury korygowanej\t=\t"+dane.substring(dane.indexOf(">")+1, dane.indexOf("</")));
+                    return dane.substring(dane.indexOf(">")+1, dane.indexOf("</"));
+                }
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            System.err.println(e);
+        }
+        catch(IOException e)
+        {
+            System.err.println(e);
+        }
+        return "0";
     }
 
 }

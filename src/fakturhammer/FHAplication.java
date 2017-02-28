@@ -255,7 +255,7 @@ class FHAplication
                         +Integer.parseInt(znak[1])+"\n\t"+znak[0]+"  "+x.getParent());
                 
                 faktury.add(new Faktura(znak[2],x.getName(),x.getAbsolutePath(),
-                        znak[1],znak[0],x.getParent()));
+                        znak[1],znak[0],x.getParent(),"",""));
           
                 //tu skończyłem
             }
